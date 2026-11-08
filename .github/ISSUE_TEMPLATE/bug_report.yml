@@ -1,0 +1,42 @@
+name: Bug report
+description: Something in FicstFluids doesn't behave as you expect.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Much that looks wrong at first is how real fluids behave, so it is worth checking the manual first.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: network
+    attributes:
+      label: The network
+      description: The fluid and the machines on it, for example "water, 6 Water Extractors, 2 Mk1 pumps, 12 Coal Generators". Screenshots help.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Game log
+      description: |
+        Drag in `FactoryGame.log` from `%LOCALAPPDATA%\FactoryGame\Saved\Logs\`, from the session where it happened. The game replaces it the next time it starts, and keeps the older one as `FactoryGame-backup-<date>.log`.
+    validations:
+      required: true
+  - type: input
+    id: mod-version
+    attributes:
+      label: FicstFluids version
+    validations:
+      required: true
+  - type: input
+    id: game-version
+    attributes:
+      label: Game version
+      description: Shown on the main menu.
+    validations:
+      required: true

@@ -1,0 +1,5 @@
+* xref:index.adoc[FicstFluids]
+* Machines
+** xref:pumps.adoc[Pumps]
+* Help
+** xref:reporting-bugs.adoc[Reporting a bug]

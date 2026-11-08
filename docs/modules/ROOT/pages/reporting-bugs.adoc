@@ -1,0 +1,29 @@
+= Reporting a bug
+
+Bugs are tracked on GitHub.
+You need a free GitHub account to open one.
+
+// TODO: replace OWNER with the GitHub account once the repository exists.
+link:https://github.com/OWNER/FicstFluids-docs/issues/new/choose[Open a bug report^]
+
+Before you report, check the other pages of this manual.
+Much that looks wrong at first is how real fluids behave.
+For example, a pump showing a negative lift is explained in xref:pumps.adoc#_negative_lift[Pumps].
+
+== What to include
+
+. *What you saw, and what you expected.*
+. *The network:* the fluid, and the machines on it (for example "water: 6 Water Extractors, 2 Mk1 pumps, 12 Coal Generators").
+A screenshot helps.
+. *Your game log.* Attach the file:
++
+----
+%LOCALAPPDATA%\FactoryGame\Saved\Logs\FactoryGame.log
+----
++
+Paste that path into the File Explorer address bar to open the folder.
+Attach the log from the session where it happened.
+The game replaces it the next time it starts, and keeps the older one as `FactoryGame-backup-<date>.log` in the same folder.
+. *Versions:* FicstFluids, and the game (shown on the main menu).
+
+// TODO: once released, the console commands a player should run before reporting.

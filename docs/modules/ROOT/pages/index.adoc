@@ -1,0 +1,16 @@
+= FicstFluids
+
+FicstFluids replaces Satisfactory's fluid mechanics with fluid flow physics.
+Pipes have pressure and friction, pumps follow a pump curve, and gases are compressible.
+A network that worked in vanilla may not work here without changes, and that is intended.
+
+// TODO: what the mod changes, in a few bullets, with a screenshot.
+
+== Where to start
+
+* xref:pumps.adoc[] -- how much a pump lifts, and why it depends on the flow.
+
+== Getting help
+
+Found something that looks wrong?
+See xref:reporting-bugs.adoc[].

@@ -1,0 +1,5 @@
+name: ficstfluids
+version: 'latest'
+title: 'FicstFluids'
+nav:
+- modules/ROOT/nav.adoc

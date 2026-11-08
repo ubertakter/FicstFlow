@@ -1,0 +1,79 @@
+= Pumps
+:description: How much a pump lifts, why it depends on the flow, and when to use pumps in series or in parallel.
+
+A pump adds pressure to whatever reaches its inlet.
+That pressure is measured as _lift_, in metres of head: the height of fluid column the pump could hold up.
+How much a pump lifts depends on how much flow passes through it.
+
+== The pump curve
+
+A pump lifts the most when nothing flows.
+As the flow rises, its lift falls, through its _design point_, down to no lift at all at its _runout_ flow.
+
+[cols="1,1,1,1"]
+|===
+| Pump | No flow | Design point | Runout (no lift)
+
+| Mk1
+| 32.7 m
+| 25 m at 300 m³/min
+| about 577 m³/min
+
+| Mk2
+| 65.3 m
+| 50 m at 600 m³/min
+| about 1,153 m³/min
+|===
+
+So a pump is not a fixed "head lift".
+The network settles at the flow where the pump's lift equals what the network needs at that flow:
+the height to climb, the pressure the machines want at their inlets, and the friction along the way.
+
+TIP: Run a pump near its design point.
+Near runout it lifts almost nothing.
+
+A pump draws power for the work it does, so a pump moving little uses little.
+
+// TODO: a plot of the Mk1 and Mk2 curves (lift against flow), drawn from the model's own pump curve.
+
+=== Before a pump will start
+
+* A pump only starts once its inlet pipe is full (primed).
+* A pump whose inlet pressure is too low throttles itself down rather than cavitate.
+A pump far above its water source, or at the end of a long suction line, may lift less than its curve says.
+
+== Negative lift
+
+If something else drives more flow through a pump than its runout, the pump stops adding pressure and becomes a restriction.
+That something might be another pump upstream, or a drop from a higher source.
+Its panel then shows a *negative lift*, and it draws no power.
+
+NOTE: The pump isn't broken.
+It's in the wrong place, or too small.
+Replace it with a Mk2, or remove it if the line doesn't need it.
+
+== Series or parallel
+
+[horizontal]
+In series:: pumps add pressure.
+In parallel:: pumps add flow.
+
+Two pumps in line each still carry the whole flow.
+Near a pump's limit, two in series give little more than one.
+
+Two pumps side by side split the flow, so each runs nearer its design point and lifts far more.
+Two Mk1s in parallel give about 25 m at 600 m³/min.
+
+TIP: Size each pump for the flow through it, not for the lift alone.
+
+Build parallel branches alike (same length, bends and height) so they share the flow evenly.
+Each pump has a check valve, so a weaker one isn't run backwards.
+
+.Example: six Water Extractors feeding twelve Coal Generators
+====
+The generators need 540 m³/min and 18 m of lift.
+
+Two Mk1s in series on the riser gave about 9 m, and the generators farthest along starved.
+The same two Mk1s in parallel fixed it.
+A single Mk2 (50 m at 600 m³/min) would also have worked.
+====
