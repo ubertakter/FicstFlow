@@ -1,0 +1,51 @@
+= Pipes
+:description: Pipe capacity, friction, fill, and what the pipe panel shows.
+
+== No flow rating
+
+Vanilla caps a Mk1 pipe at 300 m³/min and a Mk2 at 600.
+FicstFluids has no cap.
+What limits a pipe is friction: flow costs pressure along its length, so a short run can carry far more than a long one.
+The only hard cap in a network is a valve's flow limit.
+
+[cols="1,1,1"]
+|===
+| Pipe | Bore | Holds per metre
+
+| Mk1
+| 1.25 m
+| about 1.2 m³
+
+| Mk2
+| 1.5 m
+| about 1.8 m³
+|===
+
+A Mk2 pipe loses far less to friction than a Mk1 at the same flow.
+Two pipes side by side split the flow, and each loses about a quarter as much.
+
+== Pressure needs a full pipe
+
+A liquid pipe gives no pressure until it is full.
+While pipes and machine buffers are filling, the liquid goes into them, not into pressure.
+
+== The fill shown on the panel
+
+A pipe's fill is an estimate of how the pipe would look, worked out from its shape and flow.
+It is not the amount of liquid the network counts.
+So the percentages across a line won't add up to the network's total, and a dip can hold about twice what its pipes' readings suggest.
+
+A pipe running downhill into something with room (a nearly empty tank or platform) doesn't fill.
+The liquid runs down it as a stream, and the pipe shows part full while carrying its full flow.
+
+== Flushing
+
+Flushing a pipe empties its whole run at once, and the network carries on.
+On a gas line, flushing vents the run to atmospheric pressure.
+
+Flushing a whole gas network empties it to atmospheric and pauses it, compressors stopped, until a fluid arrives again.
+Then it rebuilds itself and carries on.
+
+== Placing a pump on a full pipe
+
+Placing a pump on a full pipe throws away that pipe's contents: about 13.9 m³ for 11 m of Mk1 pipe.

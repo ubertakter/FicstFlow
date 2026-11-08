@@ -1,0 +1,103 @@
+= Gas networks
+:description: Compressors, filling a gas line, boosters, and bringing a big line up in sections.
+
+Read the xref:primer.adoc#_gas_is_different[primer's gas section] first.
+The short version: gas compresses, so a gas line stores gas as pressure and takes time to fill.
+
+NOTE: Gas properties are still being tuned.
+The way gas networks behave won't change, but the times on this page are estimates and will probably get shorter.
+
+== Gas lines need compressors
+
+Gas machines work at MPa.
+A Blender's nitrogen inlet draws nothing below about 5.5 MPa gauge (800 psig) and wants 6.9 MPa (1,000 psig).
+That is far above what any gas source supplies; a Resource Well's nitrogen comes out at about 1.45 MPa.
+
+A pipeline pump placed on a gas line works as a *compressor*.
+It multiplies the absolute pressure at its suction by up to its ratio limit.
+See xref:compressors.adoc[] for the numbers.
+
+TIP: Because a compressor multiplies absolute pressure, it can do much more with a high suction pressure than a low one.
+
+== Filling takes time
+
+Pressure appears only once the line holds enough gas, and it fills no faster than the producers supply, less what is drawn off.
+
+A compressor at the far end of a line that isn't full pulls its suction below atmospheric and runs near its ratio limit, moving little, until the line fills.
+
+.Example: four wells down a 1,075 m nitrogen line
+====
+Four Resource Well Extractors (120 std m³/min each) fed a 1,075 m line to a Mk2 compressor and a Blender.
+The Blender draws nothing below 5.5 MPa, which one Mk2 reaches only from about 600 kPa at its suction.
+The first gas reached the Blender after about half an hour.
+====
+
+*The quicker layout:* put the compressor at the consumer's end.
+Then the line need only reach the compressor's suction pressure, not the consumer's.
+
+== One line for all the wells
+
+All the wells at a nitrogen extraction point can share one output line.
+A single Mk2 pipe carries far more than a pressurizer's wells make.
+
+.Example
+====
+Two Resource Well Extractors, 600 std m³/min together, ran down one line to a Mk2 compressor taking 585 std m³/min at about 1 MPa suction, and delivering 8.3 MPa to the Blenders.
+====
+
+== Long lines: boosters
+
+Gas loses pressure to friction as it flows, and the loss feeds on itself.
+As the pressure falls the gas expands, moves faster, and loses pressure faster still.
+So a line that carries a lot of gas a long way arrives at a low pressure.
+
+A compressor partway along, a *booster*, lifts the pressure again; the gas past it is denser and slower and loses less.
+Real gas pipelines work this way, with compressor stations along their length.
+
+* *The wells set the start.*
+Their outlet holds at most about 1.45 MPa, so a line straight from them can lose no more than that before its far end reaches atmospheric.
+A compressor near the wells raises the whole line's pressure, so the same flow loses less.
+* *Put the booster where the suction is still well above atmospheric,* not at the far end of a line that has run down.
+* *Compressors in series multiply:* two Mk2s reach about 7.9 × 7.9 times the first one's absolute suction pressure, less the line's losses between them.
+
+.Image to come
+****
+*Schematic:* wells, a compressor at the wells, a long line, a booster partway, and the consumers, with the pressure along the line plotted beneath.
+****
+
+== Bring a big line up in sections
+
+The time to reach a machine's pressure grows with the volume being filled.
+So split the line with valves and let the part nearest the compressor come up first; its machines start running while the rest waits.
+
+. Valve off anything that adds volume without needing gas yet: a Fluid Buffer, or a machine whose inlet needs far more pressure than the others.
+. Close a valve just past the first few consumers.
+. Open each next valve *only part way*.
+A gas valve holds the flow limit you set, in std m³/min.
+Set it to what the producers make, minus what the running machines take.
+Opened fully, the next section's low pressure pulls the running section below its machines' minimum and they stop.
+. Open the Fluid Buffer last.
+
+.Example: a Rocket Fuel line
+====
+Two Blenders fed a Mk2 compressor, fifteen Fuel-Powered Generators and a 400 m³ Fluid Buffer: about 1,450 m³ in all.
+Filling all of it to the generators' 5.5 MPa takes hours; each 100 m³ section takes about a quarter of an hour.
+====
+
+== Very high pressures: the plasma chain
+
+A Particle Accelerator on Dark Matter Residue draws nothing below 48.3 MPa gauge (7,000 psig) and reaches full rate at 68.9 MPa.
+That takes *at least two stages* of compression: from a Converter's 2.8 MPa, one Mk2 reaches only about 18 MPa, and two in series about 107 MPa.
+
+Compressing these hot plasmas costs far more power than nitrogen.
+The two Mk2 stages an Accelerator needs draw about 12.7 MW together.
+
+NOTE: The plasma chain's pressures are under review and may change.
+
+== Gas in an existing save
+
+Vanilla gas lines stop when FicstFluids is installed.
+Vanilla has no pressure, so its gas machines ran on whatever its pipes held.
+FicstFluids keeps that gas, but in a long line it is far too little, and those lines have no compressors.
+
+Add compressors, then give the line time to fill.

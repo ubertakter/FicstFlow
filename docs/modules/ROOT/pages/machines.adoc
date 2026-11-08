@@ -1,0 +1,111 @@
+= Machines
+:description: How machine inlets draw and outlets push, and every machine's pressures.
+
+== Inlets need pressure
+
+Each machine inlet has a pressure band:
+
+* below its *minimum* it draws nothing,
+* at its *desired* pressure it draws as fast as it can,
+* in between it draws part of that.
+
+A Refinery's liquid inlet draws nothing at 4 m and draws fastest at 8 m.
+
+== Full speed comes before the desired pressure
+
+A machine draws to keep its input buffer topped up.
+While the buffer refills it asks for up to *twice* its use rate; once full, just its use rate.
+Generators take their water or fuel in loads, so they hold one load short of full.
+
+Because of that doubling, a machine keeps up with its own use well below its desired pressure.
+It runs at full speed from a quarter of the way up its band.
+
+.A Refinery's liquid inlet
+[cols="1,3"]
+|===
+| Inlet pressure | What happens
+
+| below 4 m
+| Draws nothing.
+
+| 4 to 5 m
+| Draws part of its rate; once its buffer is empty it slows (71% at 4.5 m).
+
+| 5 to 8 m
+| Runs at full speed; only its buffer refills more slowly.
+
+| 8 m and up
+| Runs at full speed and refills its buffer fastest.
+|===
+
+Gas inlets work the same way.
+A Blender's nitrogen runs at full speed from about 5.9 MPa (850 psig), its desired pressure being 6.9 MPa (1,000 psig).
+
+The xref:report.adoc[Network Status report] warns about an inlet below its full-speed pressure, says the speed the machine will drop to, and only notes one between full speed and desired.
+
+== Machines change the network
+
+This throttling is what makes a network settle rather than surge.
+But a network running at its full flow has no spare: add a machine, and every inlet's pressure drops.
+Machines below their full-speed pressure then draw only part of their rate.
+
+== Outlets push at a fixed pressure
+
+A machine's liquid outlet supplies at 10 m of head, plus its height.
+Delivering higher than that, or through more friction, needs a pump.
+
+== Machine pressures
+
+All pressures are gauge.
+Liquid bands are the same for every liquid inlet: nothing below 4 m, desired 8 m, full speed from 5 m.
+
+[cols="2,2,2"]
+|===
+| Machine | Liquid | Gas
+
+| Water Extractor, Oil Extractor
+| out 10 m
+| —
+
+| Resource Well Extractor
+| out 10 m (water, crude oil)
+| out 1.45 MPa (nitrogen, 211 psig)
+
+| Oil Refinery
+| in 4–8 m, out 10 m
+| in 5.5–6.9 MPa (Rocket Fuel); out 2.1 MPa (Ionized Fuel, 307 psig)
+
+| Blender
+| in 4–8 m, out 10 m
+| in 5.5–6.9 MPa (nitrogen); out 6.9 MPa (Rocket Fuel, 997 psig)
+
+| Packager
+| in 4–8 m, out 10 m
+| in 18.6–27.6 MPa (2,700–4,000 psig); out 16.5 MPa (2,400 psig)
+
+| Converter
+| —
+| out 2.8 MPa (409 psig)
+
+| Quantum Encoder
+| —
+| in 48.3–68.9 MPa (7,000–10,000 psig); out 7.6 MPa (1,103 psig)
+
+| Particle Accelerator
+| in 4–8 m (crude oil)
+| in 48.3–68.9 MPa (Dark Matter Residue)
+
+| Coal Generator, Nuclear Power Plant
+| in 4–8 m (water)
+| —
+
+| Fuel-Powered Generator
+| in 4–8 m
+| in 5.5–6.9 MPa (Rocket Fuel, Ionized Fuel)
+
+| Fluid Freight Platform, Fluid Truck Station
+| out 10 m
+| see xref:freight.adoc[]
+|===
+
+Gas bands are written minimum–desired.

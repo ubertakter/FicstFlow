@@ -1,0 +1,125 @@
+= Starting up a network
+:description: Why a network can fail to come up to pressure, and how to start one reliably.
+
+== The rule: pressurize first, then bring machines on slowly
+
+The reliable way to start any FicstFluids network is to let it fill and come up to pressure with little or nothing drawing.
+Then switch the consumers on a few at a time.
+
+The rest of this page is that rule in its different forms.
+
+== Why start-up is hard
+
+At start-up every pipe and every machine buffer is empty.
+Every machine is refilling at up to twice its rate.
+So the network is asked for far more than it will need once it's running, and the pressure may never build.
+
+Joining two networks does the same: the new machines' empty buffers can take all the flow.
+
+Friction makes it worse: the farther machines get less pressure.
+
+TIP: The machines' buffers show how it is going.
+A buffer still filling means the network is still filling it.
+
+== Liquid: the standby sequence
+
+. Put some or all of the machines on standby.
+. Let the pressure build.
+. Switch them back on a few at a time.
+
+Once the network is full and the buffers are topped up, it supplies them all.
+
+=== An exactly matched chain
+
+One machine feeding another that uses exactly what it makes (one Refinery into another) settles at a low pressure, about 5 m at the consumer's inlet rather than the producer's 10 m.
+
+While the consumer's buffer isn't full, it asks for twice its rate.
+The producer can't give more than its own rate, so the line sits where the consumer's part-rate draw equals it.
+The consumer still gets all it uses and runs at full speed, so the report doesn't flag it.
+
+To bring the pressure up, put the consumer on standby for a moment.
+Its buffer fills, the line comes up to the producer's pressure, and it stays there when switched back on.
+
+== Water towers
+
+A Fluid Buffer above the machines holds the pressure up from its own water while the network fills, and through any surge later.
+Its water surface must stand above the machines' inlets by at least their desired inlet pressure (8 m for a Refinery), plus the friction on the way.
+
+.Image to come
+****
+*Screenshot:* a water tower that worked, with its height above the machines marked.
+****
+
+=== Charge the tower before opening it
+
+A tower whose outlet is open from the start fills no faster than the network leaves it water.
+At start-up the empty pipes and refilling machines take everything, so the tower may never fill.
+
+. Close a valve on the tower's outlet (set its limit to 0), or leave the outlet unconnected.
+. Let the tower fill. The whole supply goes into it.
+. *Open it part way.* Set the valve near the supply's rate, so the network fills at about what the supply puts back and the tower stays near full.
+. Raise the limit step by step, or open it fully once the network is up.
+
+CAUTION: The tower must hold enough to fill the pipes downstream and cover the machines' refill, or it empties and the start-up shortage is back.
+A metre of pipe holds about 1.2 m³ on Mk1 and 1.8 m³ on Mk2.
+
+=== A tower at the factory for a distant source
+
+When the source is far away (wells or extractors at the end of a long line), put the tower at the factory end.
+To start up, shut the tower's outlet and let the long line fill it; then open it to the machines, part way at first.
+Everything you need to control is at the factory, and you don't have to travel out along the line.
+
+== Long supply lines: know when it's full
+
+. Put all but one or two machines on standby.
+. Open the long supply pipe's panel.
+. While the line is filling, more goes in at its inlet than comes out at its outlet.
+. Once the inlet and outlet flows are equal, the line is full and will pressurize. Start the other machines.
+
+== Gas lines: in sections
+
+Bring a big gas line up in sections with valves, nearest the compressor first.
+See xref:gas-networks.adoc#_bring_a_big_line_up_in_sections[Bring a big line up in sections].
+
+== Pumps on a thick liquid
+
+A pump whose suction is negative and close to its limit slows itself to stay clear of cavitation.
+On a thick liquid such as Heavy Oil Residue, each change in its speed changes the friction on the suction line, and the line won't settle.
+
+Once the system has pressurized and the pump's suction is no longer negative, it runs far more steadily.
+Feed such pumps from a tank above them, or put them right at the source.
+
+== A network with little spare supply
+
+When the producers make only a little more than the machines use, the network can settle two ways:
+
+* *Buffers full:* the machines take only what they use, the surplus builds pressure, and the pumps run at full lift.
+* *Buffers refilling:* the machines ask for up to twice their rate, demand outruns supply, the pressure at the pumps' suction falls, and the pumps slow to protect themselves.
+The network then recovers only as fast as its small surplus refills the buffers, which can take far longer than anyone will wait.
+
+Anything that makes many machines refill at once can tip it over: a start-up, machines switched back on after a pause, a connection to another network.
+
+.Example: twelve Blenders feeding 42 Oil Refineries
+====
+Twelve Blenders (1,280 m³/min) fed 42 Refineries through two Mk2 pumps, with no storage and about 4% to spare.
+At full pressure the Refineries sat near 70 to 76 m.
+After a surge the main pump ran at 44% speed with its suction at −5.6 m, its Refineries at 5 to 6 m, and it was still there 8½ minutes later.
+Pausing the Refineries until the pressure built brought it back, and it then held.
+====
+
+*Fixes:* more supply than the machines use (well above a few per cent), or storage between the producers and the pumps, so a surge draws on the Fluid Buffer instead of the pumps' suction.
+The standby sequence gets it running again without either.
+
+== Start-up shortage or an over-capacity network?
+
+Standby fixes a start-up shortage, not a network that can't supply its machines.
+
+At start-up the shortage is temporary, because refilling buffers ask for up to twice their rate.
+But if the machines' combined use is more than the network can deliver at their inlet pressure, switching them back on returns it to the same low pressure.
+That needs more supply, a pump, less friction (shorter, Mk2 or a second pipe), or fewer machines.
+A water tower is the same: it bridges a temporary shortage and drains in a permanent one.
+
+*To tell them apart,* give it a minute after switching the machines back on:
+
+* Buffers staying full and pressure staying up: it was start-up.
+* Pressure sinking back and buffers draining: the network is over capacity.

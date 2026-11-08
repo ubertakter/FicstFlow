@@ -1,0 +1,70 @@
+= Is this a bug?
+:description: Behaviour that looks wrong but is FicstFluids working as designed.
+
+All of these are correct behaviour.
+If what you see isn't here, or doesn't match the explanation, see xref:reporting-bugs.adoc[].
+
+[cols="2,3"]
+|===
+| What you see | Why, and what to do
+
+| My gas line stopped after installing FicstFluids.
+| Vanilla gas lines have no compressors. Add one, then let the line fill. xref:gas-networks.adoc#_gas_in_an_existing_save[Gas in an existing save]
+
+| The network won't come up to pressure at start-up.
+| Empty pipes and refilling buffers ask for more than it can give. xref:starting-up.adoc[Start it in stages].
+
+| It ran fine, then lost its pressure after a restart and never recovered.
+| Too little spare supply. xref:starting-up.adoc#_a_network_with_little_spare_supply[A network with little spare supply]
+
+| A pump shows a negative lift and 0 kW.
+| More flow is going through it than its runout. xref:pumps.adoc#_negative_lift[Negative lift]
+
+| A pump with its power cut keeps turning.
+| Flow from elsewhere is driving it like a turbine. Use a valve to stop a line. xref:pumps.adoc#_a_pump_with_its_power_cut_can_keep_turning[Pumps]
+
+| Two pumps in series barely lift more than one.
+| They each carry the whole flow. Put them in parallel. xref:pumps.adoc#_series_or_parallel[Series or parallel]
+
+| A machine's water output backs up although the network wants water.
+| Its outlet pushes only 10 m. Return the water with a pump. xref:liquid-networks.adoc#_returning_water_to_the_network[Returning water]
+
+| One Refinery feeding another sits at about 5 m.
+| An exactly matched chain. It still runs at full speed. xref:starting-up.adoc#_an_exactly_matched_chain[An exactly matched chain]
+
+| A machine runs at full speed below its desired pressure.
+| Full speed comes a quarter of the way up the band. xref:machines.adoc#_full_speed_comes_before_the_desired_pressure[Machines]
+
+| The pipe fill percentages don't add up to the network's total.
+| The fill is an estimate of how the pipe looks. xref:pipes.adoc#_the_fill_shown_on_the_panel[Pipes]
+
+| A tank never drains below a certain level.
+| A downhill outlet needs some depth over its mouth. xref:tanks.adoc[]
+
+| A gas line delivers less than it takes in.
+| The rest is packing into the pipe as pressure. xref:freight.adoc#_gas[Gas freight]
+
+| A gas platform reads −101 kPa.
+| An empty gas platform is at vacuum. xref:freight.adoc#_gas[Gas freight]
+
+| A gas wagon shows far more than 2,400 m³.
+| Gas is carried under pressure and measured in standard m³. xref:freight.adoc#_gas[Gas freight]
+
+| A loading platform won't push out of its outlet.
+| Only one side works at a time. xref:freight.adoc#_only_one_side_works_at_a_time[Freight]
+
+| A platform won't take a new fluid.
+| Flush it first. xref:freight.adoc#_changing_a_platforms_fluid[Freight]
+
+| A truck reads empty while docked.
+| The transfer lands at the end of the 9 s dock. xref:freight.adoc#_only_one_side_works_at_a_time[Freight]
+
+| An unloading station won't fill a Fluid Buffer.
+| Its 10 m balances the buffer's level. Add a pump or lower the buffer. xref:freight.adoc#_it_empties_like_an_extractor[Freight]
+
+| The report warns about pumps on a line whose machines are on standby.
+| They use power and move nothing. xref:report.adoc#_machines_on_standby_warn_about_their_pumps[Report]
+
+| Placing a pump emptied the pipe.
+| Placing a pump on a full pipe throws its contents away. xref:pipes.adoc#_placing_a_pump_on_a_full_pipe[Pipes]
+|===

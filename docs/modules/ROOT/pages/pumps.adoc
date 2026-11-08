@@ -5,6 +5,8 @@ A pump adds pressure to whatever reaches its inlet.
 That pressure is measured as _lift_, in metres of head: the height of fluid column the pump could hold up.
 How much a pump lifts depends on how much flow passes through it.
 
+A pipeline pump on a gas line works as a compressor instead; see xref:compressors.adoc[].
+
 == The pump curve
 
 A pump lifts the most when nothing flows.
@@ -34,13 +36,36 @@ Near runout it lifts almost nothing.
 
 A pump draws power for the work it does, so a pump moving little uses little.
 
-// TODO: a plot of the Mk1 and Mk2 curves (lift against flow), drawn from the model's own pump curve.
+Pumps are generally better than vanilla's: a Mk1 lifts up to 32.7 m against vanilla's 22 m, and no pipe rating caps the flow they move.
 
-=== Before a pump will start
+.Image to come
+****
+*Plot:* lift against flow for the Mk1 and Mk2, drawn from the model's own pump curve, with design points and runouts marked.
+****
+
+== Before a pump will start
 
 * A pump only starts once its inlet pipe is full (primed).
-* A pump whose inlet pressure is too low throttles itself down rather than cavitate.
-A pump far above its water source, or at the end of a long suction line, may lift less than its curve says.
+* A pump whose inlet pressure is too low slows itself down rather than cavitate.
+A pump far above its source, or at the end of a long suction line, may lift less than its curve says.
+
+== Starting and stopping
+
+Switched on, a pump ramps from rest to full speed over 10 s, and its lift grows with it.
+Switched off or unpowered, it coasts down on its own inertia, still lifting a little as it slows.
+Against a shut line a Mk1 takes about 10 s, and a Mk2 about 8 s, to fall to 30% speed.
+A pump at rest blocks the line in both directions.
+
+So pressure downstream of a pump comes and goes over seconds, not at once.
+
+=== A pump with its power cut can keep turning
+
+If something else is still pushing fluid through an unpowered pump (a higher tank, a drop, another pump upstream), that flow turns the impeller like a turbine.
+The pump slows only until the flow balances it, and holds that speed, drawing no power.
+A pump holding at 37% speed is passing a little over its rated flow.
+
+An unpowered pump never stops the flow.
+To stop a line, use a valve: shut it, or set its flow limit to 0.
 
 == Negative lift
 
@@ -51,6 +76,12 @@ Its panel then shows a *negative lift*, and it draws no power.
 NOTE: The pump isn't broken.
 It's in the wrong place, or too small.
 Replace it with a Mk2, or remove it if the line doesn't need it.
+
+.Example
+====
+A Mk1 on a Dissolved Silica line read 602 m³/min, a lift of −3.5 m, and 0 kW: just past its runout of about 577 m³/min.
+Two Mk1s in parallel, or a Mk2, fixed it.
+====
 
 == Series or parallel
 
@@ -77,3 +108,8 @@ Two Mk1s in series on the riser gave about 9 m, and the generators farthest alon
 The same two Mk1s in parallel fixed it.
 A single Mk2 (50 m at 600 m³/min) would also have worked.
 ====
+
+.Image to come
+****
+*Schematic:* the same two Mk1s in series and in parallel, with the lift each gives at 540 m³/min.
+****

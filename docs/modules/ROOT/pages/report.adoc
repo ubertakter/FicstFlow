@@ -1,0 +1,48 @@
+= Network Status report
+:description: The list of every network and what is wrong with it.
+
+Press *L* (by default) to open the Network Status report.
+It lists every network FicstFluids runs, with what is wrong with each and where.
+
+.Image to come
+****
+*Screenshot:* the report window with a few networks listed, one expanded.
+****
+
+== Severities
+
+[horizontal]
+Problem:: Something isn't working now: a machine starved, a pump with no power on a line that needs it.
+Warning:: Something will go wrong, or is wasting power.
+Note:: Worth knowing, not wrong: a machine on standby, an inlet a little below its desired pressure.
+
+The *Hide healthy networks* checkbox hides networks with nothing worse than a Note.
+
+== Reading it
+
+=== The same pressure, different severities
+
+The pressure says what a machine _will_ do; the severity says what it is doing now.
+
+* A machine that has stopped crafting and holds less than one craft's worth is *starved*: a Problem ("can run at only N%").
+* One still crafting, or still holding enough, is a Warning ("once its buffer is empty it will run at N%").
+It is living off its buffer and will slow when that runs out.
+
+So two machines side by side at 4.2 m and 4.3 m can show a Problem and a Warning.
+
+=== Machines on standby warn about their pumps
+
+On a line whose machines are all on standby, each machine gets a Note and each powered pump or compressor gets a Warning: it moves nothing while still using power.
+That is expected.
+To clear it, switch the machines back on, or turn the pumps off too.
+
+=== Full speed and desired pressure
+
+The report warns about an inlet below its machine's full-speed pressure and says what speed it will drop to.
+An inlet between full speed and desired only gets a Note.
+See xref:machines.adoc#_full_speed_comes_before_the_desired_pressure[Machines].
+
+=== Pumps and compressors
+
+A powered pump or compressor moving nothing is a Warning.
+So is a compressor at its ratio limit, or relieving.

@@ -1,0 +1,25 @@
+= Valves
+:description: One-way valves, flow limits, and what to do with valves built for vanilla.
+
+A FicstFluids valve is a one-way ball valve with a small pressure loss.
+Its *flow limit* is a hard cap, the only one in a network: pipes have none.
+
+* On a liquid line the limit is in m³/min, and it can be set past a pipe's vanilla rating (300 m³/min on Mk1).
+* On a gas line the limit is in std m³/min.
+
+== Uses
+
+* *Stopping a line.* Set the limit to 0. An unpowered pump does not stop the flow; a valve does.
+* *One-way joins.* A valve keeps a return pump's pressure from pushing back up a supply line. See xref:liquid-networks.adoc#_returning_water_to_the_network[Returning water].
+* *Charging a water tower* before opening it, then opening it part way. See xref:starting-up.adoc#_water_towers[Water towers].
+* *Bringing a gas line up in sections.* See xref:gas-networks.adoc#_bring_a_big_line_up_in_sections[Gas networks].
+
+== Valves built for vanilla
+
+Valves built to work around vanilla's physics are probably no longer needed, and are fine left in.
+Wide open, a valve does no harm.
+
+CAUTION: Check its limit.
+A valve throttled down to tame vanilla's sloshing, or to share flow between branches, still caps the flow at that setting.
+It may now be what starves the machines past it.
+Open it up, or take it out.

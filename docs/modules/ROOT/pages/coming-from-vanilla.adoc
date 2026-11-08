@@ -1,0 +1,76 @@
+= Coming from vanilla
+:description: What changes when FicstFluids takes over an existing factory, and what to do about it.
+
+If you install FicstFluids in an existing save, some of your networks will stop or run slow.
+That is expected: they were built for vanilla's rules.
+This page lists what changed and where to read more.
+
+== What changes
+
+[cols="1,2,2"]
+|===
+| | Vanilla | FicstFluids
+
+| Pipe capacity
+| Mk1 300 m³/min, Mk2 600 m³/min
+| No cap. Friction limits the flow, so length matters. (xref:pipes.adoc[])
+
+| Pump
+| A fixed head lift (22 m for a Mk1)
+| A pump curve: up to 32.7 m (Mk1) or 65.3 m (Mk2) at no flow, less as the flow rises. (xref:pumps.adoc[])
+
+| Machine inlets
+| Take whatever reaches them
+| Need pressure: below a minimum they draw nothing. (xref:machines.adoc[])
+
+| Machine outlets
+| Push into anything
+| Push at a fixed pressure, 10 m of head for liquids. Returning water to a pressurized network needs a pump.
+
+| Manifolds
+| Share fluid badly, so machines are often piped one into the next
+| A pressurized manifold delivers to every machine on it.
+
+| Valves
+| Used to tame sloshing and share flow
+| One-way, with a flow limit that is a hard cap. Leftover throttling may now starve machines. (xref:valves.adoc[])
+
+| Gas
+| Flows like a liquid
+| Compressible. Gas machines need MPa, so gas lines need compressors. (xref:gas-networks.adoc[])
+
+| Freight platforms
+| A loading platform still pushes out of a connected outlet
+| Only one side works at a time. (xref:freight.adoc[])
+|===
+
+== What to check in an existing factory
+
+. *Gas lines will stop.*
+Vanilla's gas lines have no compressors, and what gas is left in them is far too little to give gas machines their pressure.
+Add a compressor (a pipeline pump on the gas line), then give the line time to fill.
+A long line can take half an hour.
+. *Long or high liquid lines may need pumps.*
+Add up the height to climb and the friction, and compare it with what the source pushes.
+See xref:liquid-networks.adoc[].
+. *Look at throttled valves.*
+A valve set low to work around vanilla still caps the flow at that setting.
+Open it up, or take it out.
+. *Water returned by machines* (Silica, Aluminum chains) may back up.
+It needs a pump to get back into the supply.
+. *Restart big networks carefully.*
+A network can fail to come up to pressure at start-up even if it would run once it was up.
+See xref:starting-up.adoc[].
+
+The xref:report.adoc[Network Status report] (L by default) lists every network with a problem, so start there.
+
+== What you no longer need
+
+* *Piping one machine straight into the next.*
+Vanilla builds often feed one Refinery directly into another, because vanilla's manifolds share badly.
+In FicstFluids the producers can feed one manifold and the consumers draw from it.
+Watch the head budget: see xref:liquid-networks.adoc#_manifolds[Manifolds].
+* *Valves to balance branches.*
+They do no harm left wide open.
+* *Pipes in parallel just for capacity.*
+A pipe has no rating; a second pipe only helps by cutting the friction.

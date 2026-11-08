@@ -1,0 +1,95 @@
+= Designing a liquid network
+:description: Budgeting head, sizing pumps, manifolds, and returning water to a pressurized network.
+
+A liquid network works when every machine's inlet gets the pressure it needs while the network carries the flow they use.
+This page shows how to check that before you build.
+
+== The head budget
+
+Start at the source and add up what the fluid spends on its way to the machine:
+
+. *What the source pushes.*
+An extractor or a machine's outlet supplies at 10 m of head.
+A Fluid Buffer pushes with the height of its water surface.
+A pump adds its lift, at the flow through it.
+. *Minus the climb.*
+Every metre up costs a metre of head; every metre down gives one back.
+. *Minus friction.*
+More for long pipes, high flow, many bends, Mk1 pipe and thick liquids.
+. *What has to be left:* the machine's inlet pressure.
+Most liquid inlets draw nothing below 4 m and run at full speed from 5 m (see xref:machines.adoc[]).
+
+If the budget doesn't close, add a pump, shorten or straighten the line, change to Mk2 pipe, or lay a second pipe beside the first.
+
+.Example: a Refinery fed straight from an extractor
+====
+The extractor supplies 10 m.
+The Refinery runs at full speed from 5 m.
+That leaves 5 m for the climb and the friction: enough for a short, level line, not for one that climbs a cliff.
+====
+
+== Enough supply
+
+Supply has to exceed what the machines use, and not by a little.
+Machines refilling their buffers ask for up to twice their rate (see xref:machines.adoc[]).
+A network with only a few per cent to spare can drop its pressure after a surge and take a very long time to recover.
+See xref:starting-up.adoc#_a_network_with_little_spare_supply[A network with little spare supply].
+
+== Manifolds
+
+In FicstFluids a pressurized manifold delivers to every machine on it.
+You don't need to pipe one machine straight into the next.
+
+Producers can feed one pipeline and consumers draw from it, as you would build a Plastic or Rubber line.
+For example, Refineries making Alumina Solution can feed one manifold that the Aluminum Scrap Refineries draw from.
+
+Watch the head: a Refinery's outlet pushes at 10 m and its inlet runs at full speed from 5 m.
+So the producers alone leave about 5 m for the climb and the friction along the manifold (2 m if you want buffers to refill at the fastest rate).
+Keep it short and level, or add a pump.
+
+.Image to come
+****
+*Schematic:* producers feeding one manifold, consumers drawing from it, with the head at each end marked.
+****
+
+== Returning water to the network
+
+A machine's outlet pushes only 10 m of head, plus its height.
+Where a well, extractors or a water tower hold the network above that, returned water can't get in.
+The machine's output backs up and it stops "full" while the network still wants water.
+
+*The layout that works:*
+
+. Merge the machines' water outlets into one return line.
+. Put a pump on the return line, after the merge, so one pump serves them all.
+. Join the return to the supply *just after a valve* on the supply.
+
+The valve is one-way, so the pump can't push the returns back up the supply line.
+When the returns come in, the pressure past the valve rises and the supply gives less, so the returns go first and the supply only tops up.
+
+*The return pump must beat the supply.*
+At the join it has to push above the supply's pressure, plus the friction along the return line.
+Otherwise the machines farthest along the return line back up first.
+A Mk1 lifts at most 32.7 m, less with flow; if the supply holds the join near that, use two Mk1s in series or a Mk2.
+
+TIP: A flow limit on the supply valve lowers the pressure at the join.
+But it is a fixed setting, and starves the consumers if it is set below what they need beyond the returns.
+
+And the balance must close, as in vanilla: if the machines return more water than the network uses, the returns back up whatever the layout.
+
+.Image to come
+****
+*Schematic:* a water tower feeding Silica Blenders, their water outlets merged into a return pump that joins the supply just past a valve.
+****
+
+== Pumps in series or parallel
+
+Pumps in series add pressure; pumps in parallel add flow.
+Size each pump for the flow through it, not for the lift alone.
+See xref:pumps.adoc#_series_or_parallel[Series or parallel].
+
+== Pumping past a tank
+
+A tank's surface sets the pressure downstream of it.
+Pressure upstream of the tank doesn't carry past it.
+To get fluid past a tank to somewhere higher, put a pump *after* the tank.

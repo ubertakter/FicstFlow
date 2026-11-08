@@ -1,5 +1,21 @@
 * xref:index.adoc[FicstFluids]
-* Machines
-** xref:pumps.adoc[Pumps]
-* Help
-** xref:reporting-bugs.adoc[Reporting a bug]
+
+.Guide
+* xref:primer.adoc[Fluid mechanics primer]
+* xref:coming-from-vanilla.adoc[Coming from vanilla]
+* xref:liquid-networks.adoc[Designing a liquid network]
+* xref:starting-up.adoc[Starting up a network]
+* xref:gas-networks.adoc[Gas networks]
+
+.Reference
+* xref:pipes.adoc[Pipes]
+* xref:machines.adoc[Machines]
+* xref:pumps.adoc[Pumps]
+* xref:compressors.adoc[Compressors]
+* xref:valves.adoc[Valves]
+* xref:tanks.adoc[Fluid Buffers and water towers]
+* xref:freight.adoc[Freight platforms and truck stations]
+* xref:report.adoc[Network Status report]
+* xref:is-this-a-bug.adoc[Is this a bug?]
+* xref:reporting-bugs.adoc[Reporting a bug]
+* xref:advanced.adoc[Advanced: console commands]

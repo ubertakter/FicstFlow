@@ -1,0 +1,31 @@
+= Fluid Buffers and water towers
+:description: How a Fluid Buffer sets pressure, fills and drains, and how to use one as a water tower.
+
+== A tank's surface sets the pressure
+
+A Fluid Buffer pushes with the height of its liquid surface.
+The pressure downstream of it is set by that surface, not by what is pushing into it.
+To get fluid past a tank to somewhere higher, put a pump after the tank.
+
+* *A full Fluid Buffer takes no more,* and whatever feeds it backs off.
+* *A tank feeding a downhill pipe holds some liquid back.*
+Liquid entering a part-full pipe passes only what the depth over the pipe's mouth allows.
+So the tank stands at the level its outlet needs for the flow it gives, about 1.6 m to pass 250 m³/min.
+A tank that never seems to drain below that level is working.
+
+== Water towers
+
+A Fluid Buffer above the machines holds the pressure up through start-up and through any surge later.
+How to place one, charge it, and open it is in xref:starting-up.adoc#_water_towers[Starting up a network].
+
+== Storage before pumps
+
+On a network with little spare supply, a Fluid Buffer between the producers and the pumps lets a surge draw on the buffer instead of the pumps' suction.
+See xref:starting-up.adoc#_a_network_with_little_spare_supply[A network with little spare supply].
+
+== Gas in a Fluid Buffer
+
+A Fluid Buffer on a gas line stores gas under pressure, and fills slowly.
+When bringing a gas line up, valve the buffer off and open it last.
+
+A new or flushed Fluid Buffer on a gas line starts at atmospheric pressure.
