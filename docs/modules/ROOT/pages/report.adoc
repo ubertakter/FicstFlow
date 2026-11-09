@@ -13,7 +13,7 @@ It lists every network FicstFluids runs, with what is wrong with each and where.
 
 [horizontal]
 Problem:: Something isn't working now: a machine starved, a pump with no power on a line that needs it.
-Warning:: Something will go wrong, or is wasting power.
+Warning:: Something may go wrong, or is wasting power. In some cases, a warning may be acceptable.
 Note:: Worth knowing, not wrong: a machine on standby, an inlet a little below its desired pressure.
 
 The *Hide healthy networks* checkbox hides networks with nothing worse than a Note.
@@ -45,4 +45,4 @@ See xref:machines.adoc#_full_speed_comes_before_the_desired_pressure[Machines].
 === Pumps and compressors
 
 A powered pump or compressor moving nothing is a Warning.
-So is a compressor at its ratio limit, or relieving.
+So is a compressor at its ratio limit, or unloading (shown as "relieving").

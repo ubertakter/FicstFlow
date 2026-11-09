@@ -20,7 +20,7 @@ Files they write go under `%LOCALAPPDATA%\FactoryGame\Saved\PipeFlow\`.
 == Looking at a network
 
 `PipeFlow.Networks [filter]`::
-Every pipe network, largest first, with its id, centre, and distance from you.
+Every pipe network, largest first, with its id, center, and distance from you.
 The filter narrows it, for example to one fluid.
 
 `PipeFlow.Aim`::

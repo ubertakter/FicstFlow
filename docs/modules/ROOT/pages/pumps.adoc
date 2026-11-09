@@ -2,7 +2,7 @@
 :description: How much a pump lifts, why it depends on the flow, and when to use pumps in series or in parallel.
 
 A pump adds pressure to whatever reaches its inlet.
-That pressure is measured as _lift_, in metres of head: the height of fluid column the pump could hold up.
+That pressure is measured as _lift_, in meters of head: the height of fluid column the pump could hold up.
 How much a pump lifts depends on how much flow passes through it.
 
 A pipeline pump on a gas line works as a compressor instead; see xref:compressors.adoc[].

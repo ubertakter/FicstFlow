@@ -1,8 +1,7 @@
 = Freight platforms and truck stations
 :description: How fluid freight platforms and truck stations fill, empty and carry gas.
 
-A Fluid Freight Platform and a Fluid Truck Station work the same way.
-Where they differ, it says so.
+A Fluid Freight Platform and a Fluid Truck Station basically work the same way.
 
 == It fills like a tank
 
@@ -39,8 +38,8 @@ This is vanilla's rule.
 
 == Gas
 
-Gas wagons and platforms carry gas under pressure, up to the compressors' relief pressure.
-So both show far more than their vanilla 3,200 and 2,400 m³: the figure is in standard m³.
+Gas wagons and platforms carry gas under pressure, up to the compressors' unloading pressure, about 91 MPa.
+Their panels show the mass of gas held and its pressure, not a volume.
 
 * *Filling* a platform that far takes a compressor on its inlet.
 * *A train takes everything from a gas platform in one go.*

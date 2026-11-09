@@ -39,7 +39,7 @@ It runs at full speed from a quarter of the way up its band.
 |===
 
 Gas inlets work the same way.
-A Blender's nitrogen runs at full speed from about 5.9 MPa (850 psig), its desired pressure being 6.9 MPa (1,000 psig).
+A Blender's nitrogen runs at full speed from about 5.9 MPa, its desired pressure being 6.9 MPa.
 
 The xref:report.adoc[Network Status report] warns about an inlet below its full-speed pressure, says the speed the machine will drop to, and only notes one between full speed and desired.
 
@@ -56,8 +56,7 @@ Delivering higher than that, or through more friction, needs a pump.
 
 == Machine pressures
 
-All pressures are gauge.
-Liquid bands are the same for every liquid inlet: nothing below 4 m, desired 8 m, full speed from 5 m.
+All pressures are gauge. Liquid bands are the same for every liquid inlet: nothing below 4 m, desired 8 m, full speed from 5 m. Gas bands are written minimum–desired.
 
 [cols="2,2,2"]
 |===
@@ -69,27 +68,27 @@ Liquid bands are the same for every liquid inlet: nothing below 4 m, desired 8 m
 
 | Resource Well Extractor
 | out 10 m (water, crude oil)
-| out 1.45 MPa (nitrogen, 211 psig)
+| out 1.45 MPa (nitrogen)
 
 | Oil Refinery
 | in 4–8 m, out 10 m
-| in 5.5–6.9 MPa (Rocket Fuel); out 2.1 MPa (Ionized Fuel, 307 psig)
+| in 5.5–6.9 MPa (Rocket Fuel); out 2.1 MPa (Ionized Fuel)
 
 | Blender
 | in 4–8 m, out 10 m
-| in 5.5–6.9 MPa (nitrogen); out 6.9 MPa (Rocket Fuel, 997 psig)
+| in 5.5–6.9 MPa (nitrogen); out 2.1 MPa (Rocket Fuel)
 
 | Packager
 | in 4–8 m, out 10 m
-| in 18.6–27.6 MPa (2,700–4,000 psig); out 16.5 MPa (2,400 psig)
+| in 18.6–27.6 MPa; out 16.5 MPa
 
 | Converter
 | —
-| out 2.8 MPa (409 psig)
+| out 2.8 MPa
 
 | Quantum Encoder
 | —
-| in 48.3–68.9 MPa (7,000–10,000 psig); out 7.6 MPa (1,103 psig)
+| in 48.3–68.9 MPa; out 7.6 MPa
 
 | Particle Accelerator
 | in 4–8 m (crude oil)
@@ -107,5 +106,3 @@ Liquid bands are the same for every liquid inlet: nothing below 4 m, desired 8 m
 | out 10 m
 | see xref:freight.adoc[]
 |===
-
-Gas bands are written minimum–desired.

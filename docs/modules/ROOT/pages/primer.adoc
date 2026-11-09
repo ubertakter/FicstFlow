@@ -1,8 +1,7 @@
 = Fluid mechanics primer
 :description: The handful of ideas every other page relies on: pressure, head, friction, pump curves, and why gas is different.
 
-You don't need an engineering degree to build with FicstFluids, but you do need a few words.
-This page explains them once, so the rest of the manual can use them freely.
+You don't need an engineering degree to build with FicstFluids, but you do need to understand a few terms and concepts.
 
 == Pressure drives flow
 
@@ -13,20 +12,20 @@ A pump raises the pressure on its outlet side; a machine's inlet pulls fluid in 
 Every part of a network shares the same pressures, so a change anywhere is felt everywhere.
 Add a machine, and the pressure at every other machine drops a little.
 
-== Head: pressure measured in metres
+== Head: pressure measured in meters
 
-For liquids, FicstFluids measures pressure as *head*, in metres.
-Head is the height of a column of the liquid that the pressure could hold up.
+For liquids, FicstFluids measures pressure as *head*, in meters.
+Head is the height of a column of the liquid that the pressure could hold up. So for a 10 m tall column of liquid, the head at the bottom of the column is 10 m.
 A pump that adds 25 m of head could push water 25 m straight up, and no further.
 
 Head makes heights easy to reason about:
 
-* Climbing costs head metre for metre.
+* Climbing costs head meter for meter.
 Pumping water up a 15 m cliff uses 15 m of head before anything else.
 * Going down gives it back.
 A pipe that drops 10 m gains 10 m of head at the bottom.
 
-So you can add up a line's needs in metres: the height to climb, the head the machines want at their inlets, and the friction on the way.
+So you can add up a line's needs in meters: the height to climb, the head the machines want at their inlets, and the friction on the way.
 
 == Gauge and absolute pressure
 
@@ -38,11 +37,18 @@ A negative gauge pressure means below atmospheric: suction.
 An empty gas platform reads about −101 kPa gauge, which is vacuum.
 
 Gas pressures are shown in kPa and MPa (1 MPa is 1,000 kPa, about ten times atmospheric).
-Some gas figures in this manual also give psig, pounds per square inch gauge, because machine pressures were first set in it.
+
+== Viscosity and density
+
+Viscosity is a fluid's resistance to flow and deformation. In lay terms, this is generally the "thickness" of the fluid. Low viscosity means a fluid flows more easily (like water). High-viscosity fluids resist movement and flow slowly (like honey or Heavy Oil Residue). 
+
+Density is how "heavy" a fluid is per unit volume. The densest fluid is Sulfuric Acid, while the lightest fluids are the gases.
+
+FicstFluids models both for the various fluids, giving them each a unique set of properties. 
 
 == Friction
 
-Moving fluid rubs against the pipe wall, and that costs pressure along the pipe.
+Moving fluid "rubs" against the pipe wall, and that costs pressure along the pipe.
 The loss grows:
 
 * with the *length* of the pipe,
@@ -51,13 +57,12 @@ The loss grows:
 * with a *narrow pipe*: a Mk2 pipe (1.5 m bore) loses far less than a Mk1 (1.25 m) at the same flow,
 * with a *thick liquid*: Heavy Oil Residue is thousands of times more viscous than water in the model.
 
-Friction is why FicstFluids pipes have no flow rating.
-A pipe will carry as much as the pressure across it can push.
-A short pipe can carry a great deal; a long one, much less.
+Friction is part of the way physics (and thus FicstFluids) limits how much flow pipes can carry.
+A pipe will carry as much as the pressure across it can push. A short pipe can have very high flow rates, because it loses less head to friction; a long one, lower flow rates (without help from pumps) because of the continual loss of head down the length of the pipe.
 
 == A pipe holds no pressure until it is full
 
-A liquid line has to fill before it can push.
+A liquid line has to fill before it can pressurize.
 While pipes and machine buffers are filling, the water goes into them, not into pressure.
 That is why starting a network takes some care (see xref:starting-up.adoc[]).
 
@@ -79,7 +84,7 @@ The numbers for each pump are in xref:pumps.adoc[].
 == Suction and cavitation
 
 A pump can pull its inlet below atmospheric, but only so far.
-Below a liquid's vapour pressure the liquid boils in the pipe, which is called *cavitation*.
+Below a liquid's vapor pressure the liquid boils in the pipe, which is called *cavitation*.
 FicstFluids' pumps protect themselves: a pump whose inlet pressure gets too low slows down rather than cavitate.
 
 So a pump far above its source, or at the end of a long suction line, lifts less than its curve says.
@@ -98,7 +103,7 @@ Pushing gas into a pipe raises its pressure only gradually, as more gas packs in
 * a line delivers less than it takes in while its pressure is rising, because the rest is packing into the pipe.
 
 Gas flow is measured in *standard m³*: the volume the gas would have at atmospheric pressure.
-That is why a gas wagon can hold far more "m³" than its tank's size.
+Because gas compresses, a gas fluid wagon holds far more gas than its tank's size would suggest.
 
-Gas machines need far more pressure than liquid ones, measured in MPa rather than metres, and the only way to get there is a compressor.
+Gas machines need far more pressure than liquid ones, measured in MPa rather than meters, and the only way to get there is a compressor.
 See xref:gas-networks.adoc[].

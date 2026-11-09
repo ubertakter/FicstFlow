@@ -61,7 +61,7 @@ At start-up the empty pipes and refilling machines take everything, so the tower
 . Raise the limit step by step, or open it fully once the network is up.
 
 CAUTION: The tower must hold enough to fill the pipes downstream and cover the machines' refill, or it empties and the start-up shortage is back.
-A metre of pipe holds about 1.2 m³ on Mk1 and 1.8 m³ on Mk2.
+A meter of pipe holds about 1.2 m³ on Mk1 and 1.8 m³ on Mk2.
 
 === A tower at the factory for a distant source
 
@@ -89,15 +89,16 @@ On a thick liquid such as Heavy Oil Residue, each change in its speed changes th
 Once the system has pressurized and the pump's suction is no longer negative, it runs far more steadily.
 Feed such pumps from a tank above them, or put them right at the source.
 
-== A network with little spare supply
+== A balanced network
 
-When the producers make only a little more than the machines use, the network can settle two ways:
+A network whose producers make about what its machines use runs without trouble once it is up.
+Getting it there takes care, because it can settle two ways:
 
-* *Buffers full:* the machines take only what they use, the surplus builds pressure, and the pumps run at full lift.
+* *Buffers full:* the machines take only what they use, and the pumps run at full lift.
 * *Buffers refilling:* the machines ask for up to twice their rate, demand outruns supply, the pressure at the pumps' suction falls, and the pumps slow to protect themselves.
-The network then recovers only as fast as its small surplus refills the buffers, which can take far longer than anyone will wait.
+The network then recovers only as fast as any surplus refills the buffers, which can take far longer than anyone will wait.
 
-Anything that makes many machines refill at once can tip it over: a start-up, machines switched back on after a pause, a connection to another network.
+Anything that makes many machines refill at once can tip it into the second: a start-up, machines switched back on after a pause, a connection to another network.
 
 .Example: twelve Blenders feeding 42 Oil Refineries
 ====
@@ -107,8 +108,8 @@ After a surge the main pump ran at 44% speed with its suction at −5.6 m, its R
 Pausing the Refineries until the pressure built brought it back, and it then held.
 ====
 
-*Fixes:* more supply than the machines use (well above a few per cent), or storage between the producers and the pumps, so a surge draws on the Fluid Buffer instead of the pumps' suction.
-The standby sequence gets it running again without either.
+*Fixes:* start it up with the standby sequence above, which also gets it running again after a surge.
+Or give it storage, between the producers and the pumps or as a water tower, so a surge draws on a Fluid Buffer instead of the pumps' suction.
 
 == Start-up shortage or an over-capacity network?
 

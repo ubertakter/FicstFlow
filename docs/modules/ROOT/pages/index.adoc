@@ -1,19 +1,19 @@
 = FicstFluids
 :description: What FicstFluids does, and how this manual is laid out.
 
-FicstFluids takes over Satisfactory's fluid physics.
-Vanilla moves fluid between pipe segments by rules of its own: a pipe has a flow rating, a pump adds a fixed "head lift", and gas behaves like a liquid.
-FicstFluids throws those rules out and solves the network the way an engineer would.
+FicstFluids is a mod that replaces Satisfactory's fluid physics with realistic engineering models. Well, realistic enough anyway.
+Vanilla moves fluid between pipe segments by rules of its own: a pipe has a flow rating, a pump adds a fixed "head lift", and gas behaves like a liquid. In FicstFluids, physics determines the limits, so those rules no longer apply.
 
 * *Pressure drives flow.* Fluid moves from high pressure to low, and every machine, pump and tank in a network pushes or pulls on the same pressures.
+* *Liquids and gases have different properties.* Each fluid has its own density and viscosity, so each handles a little differently.
 * *Pipes have friction, not a flow cap.* A short pipe can carry far more than a long one.
 * *Pumps follow a pump curve.* The more you draw through a pump, the less it lifts.
 * *Machines need pressure at their inlets* to draw at full rate, and push fluid out of their outlets at a set pressure.
 * *Gas is compressible.* A pipeline pump on a gas line works as a compressor, gas lines store gas as pressure, and they take time to fill.
 * *Freight platforms and truck stations* fill like tanks and empty like extractors, and carry gas under pressure.
 
-FicstFluids also replaces the panels for pumps, pipes, valves, Fluid Buffers and compressors with ones that show its numbers.
-It adds a *Network Status report*, a list of every network with what is wrong with it and where (see xref:report.adoc[]).
+FicstFluids also provides new and more informative interfaces for pumps, pipes, valves, Fluid Buffers and compressors.
+The mod also adds a *Network Status report*, a list of every network with what is wrong with it and where (see xref:report.adoc[]).
 
 IMPORTANT: Networks built for vanilla will often not work under FicstFluids until you add pumps or compressors.
 That is intended.
@@ -26,12 +26,12 @@ See xref:coming-from-vanilla.adoc[].
 
 == How this manual is laid out
 
-The *Guide* is meant to be read in order.
-It starts with a xref:primer.adoc[fluid mechanics primer], because every other page uses its words: head, gauge pressure, friction, a pump curve.
-Then it covers what changes from vanilla, how to design a network, how to start one up, and gas.
+*Guide* is a walkthrough, meant to be read in order.
+It starts with a xref:primer.adoc[fluid mechanics primer] defining terms used throughout the documentation: head, gauge pressure, friction, a pump curve.
+Then it covers what changes from vanilla, how to design a network, how to start one up, and gas (which is different from liquid, obviously).
 
-The *Reference* is meant to be looked up.
-It has a page for each kind of building, the Network Status report, and xref:is-this-a-bug.adoc[], which lists the behaviour that looks wrong but isn't.
+*Reference* is exactly what it sounds like, reference material.
+It has a page for each kind of building, the Network Status report, and xref:is-this-a-bug.adoc[], which lists the behavior that looks wrong but isn't.
 
 Found something that looks wrong?
 Check xref:is-this-a-bug.adoc[] first, then see xref:reporting-bugs.adoc[].

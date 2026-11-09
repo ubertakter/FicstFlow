@@ -28,6 +28,14 @@ Source of the notes: `C:\SML\SatisfactoryModLoader\Mods\GameFeatures\PipeFlow\Do
 6. **The report key.** The manual says L "by default". Confirm the default and that it can be
    rebound.
 
+7a. **Revise the bug-reporting process.** The user may change how players report bugs; the
+   `reporting-bugs.adoc` page and the issue form (`.github/ISSUE_TEMPLATE/`) follow whatever is
+   decided (user, 2026-11-08).
+7b. **Rename "Relieving" to "Unloading"** in the compressor panel and the report (UI session,
+   `PipeFlowCompressorPanelBody.cpp:118`, `PipeFlowReport.cpp:193`). Since PipeFlowSim v1.38 the
+   band above the set pressure is an unloader. The manual says "unloading" and notes the old
+   word; drop the note and fix `report.adoc` once renamed.
+
 ## To confirm in game or against the code
 
 7. **A pump with its power cut holding at 37% speed.** Seen live 2026-11-06, not confirmed with
@@ -68,7 +76,7 @@ Source of the notes: `C:\SML\SatisfactoryModLoader\Mods\GameFeatures\PipeFlow\Do
 ## Kept out of the manual
 
 22. **A gas platform pushing a nearby Fluid Buffer past equal pressure** (notes, Rail freight,
-    2026-11-01). The notes call it mostly an artefact of how the model handles short pipes.
+    2026-11-01). The notes call it mostly an artifact of how the model handles short pipes.
     Departures from real physics are issues for PipeFlowSim, not player documentation, so it is
     left out. Raise it with PipeFlowSim if it isn't already there.
 

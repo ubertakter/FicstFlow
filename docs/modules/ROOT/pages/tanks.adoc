@@ -20,8 +20,8 @@ How to place one, charge it, and open it is in xref:starting-up.adoc#_water_towe
 
 == Storage before pumps
 
-On a network with little spare supply, a Fluid Buffer between the producers and the pumps lets a surge draw on the buffer instead of the pumps' suction.
-See xref:starting-up.adoc#_a_network_with_little_spare_supply[A network with little spare supply].
+On a balanced network, a Fluid Buffer between the producers and the pumps lets a surge draw on the buffer instead of the pumps' suction.
+See xref:starting-up.adoc#_a_balanced_network[A balanced network].
 
 == Gas in a Fluid Buffer
 

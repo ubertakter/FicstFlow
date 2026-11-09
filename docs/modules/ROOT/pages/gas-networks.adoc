@@ -5,12 +5,12 @@ Read the xref:primer.adoc#_gas_is_different[primer's gas section] first.
 The short version: gas compresses, so a gas line stores gas as pressure and takes time to fill.
 
 NOTE: Gas properties are still being tuned.
-The way gas networks behave won't change, but the times on this page are estimates and will probably get shorter.
+The way gas networks behave won't change, but the times on this page are estimates and may change.
 
 == Gas lines need compressors
 
 Gas machines work at MPa.
-A Blender's nitrogen inlet draws nothing below about 5.5 MPa gauge (800 psig) and wants 6.9 MPa (1,000 psig).
+A Blender's nitrogen inlet draws nothing below about 5.5 MPa gauge and wants 6.9 MPa.
 That is far above what any gas source supplies; a Resource Well's nitrogen comes out at about 1.45 MPa.
 
 A pipeline pump placed on a gas line works as a *compressor*.
@@ -51,8 +51,7 @@ Gas loses pressure to friction as it flows, and the loss feeds on itself.
 As the pressure falls the gas expands, moves faster, and loses pressure faster still.
 So a line that carries a lot of gas a long way arrives at a low pressure.
 
-A compressor partway along, a *booster*, lifts the pressure again; the gas past it is denser and slower and loses less.
-Real gas pipelines work this way, with compressor stations along their length.
+In the game you'll rarely have this problem, as the modeled lines can flow very high rates without much loss. However, if you run into this situation, a compressor partway along, a *booster*, lifts the pressure again; the gas past it is denser and slower and loses less. Real gas pipelines work this way, with compressor stations along their length.
 
 * *The wells set the start.*
 Their outlet holds at most about 1.45 MPa, so a line straight from them can lose no more than that before its far end reaches atmospheric.
@@ -86,7 +85,7 @@ Filling all of it to the generators' 5.5 MPa takes hours; each 100 m³ section t
 
 == Very high pressures: the plasma chain
 
-A Particle Accelerator on Dark Matter Residue draws nothing below 48.3 MPa gauge (7,000 psig) and reaches full rate at 68.9 MPa.
+A Particle Accelerator on Dark Matter Residue draws nothing below 48.3 MPa gauge and reaches full rate at 68.9 MPa.
 That takes *at least two stages* of compression: from a Converter's 2.8 MPa, one Mk2 reaches only about 18 MPa, and two in series about 107 MPa.
 
 Compressing these hot plasmas costs far more power than nitrogen.

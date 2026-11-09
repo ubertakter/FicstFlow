@@ -10,7 +10,7 @@ The only hard cap in a network is a valve's flow limit.
 
 [cols="1,1,1"]
 |===
-| Pipe | Bore | Holds per metre
+| Pipe | Bore | Holds per meter
 
 | Mk1
 | 1.25 m

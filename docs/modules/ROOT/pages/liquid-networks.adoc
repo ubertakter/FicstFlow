@@ -10,10 +10,10 @@ Start at the source and add up what the fluid spends on its way to the machine:
 
 . *What the source pushes.*
 An extractor or a machine's outlet supplies at 10 m of head.
-A Fluid Buffer pushes with the height of its water surface.
+A Fluid Buffer pushes with the height of its liquid surface.
 A pump adds its lift, at the flow through it.
 . *Minus the climb.*
-Every metre up costs a metre of head; every metre down gives one back.
+Every meter up costs a meter of head; every meter down gives one back.
 . *Minus friction.*
 More for long pipes, high flow, many bends, Mk1 pipe and thick liquids.
 . *What has to be left:* the machine's inlet pressure.
@@ -28,12 +28,17 @@ The Refinery runs at full speed from 5 m.
 That leaves 5 m for the climb and the friction: enough for a short, level line, not for one that climbs a cliff.
 ====
 
-== Enough supply
+== "Balanced" supply and demand
 
-Supply has to exceed what the machines use, and not by a little.
-Machines refilling their buffers ask for up to twice their rate (see xref:machines.adoc[]).
-A network with only a few per cent to spare can drop its pressure after a surge and take a very long time to recover.
-See xref:starting-up.adoc#_a_network_with_little_spare_supply[A network with little spare supply].
+"Balanced" networks, where supply exactly matches demand, require slightly more careful management, particularly during start-up. Machines refilling their internal buffers will ask for up to twice their rate (see xref:machines.adoc[]). Starting all machines on a network can cause a pressure drop after a surge and take a long time to recover.
+See xref:starting-up.adoc#_a_balanced_network[A balanced network]. One way to compensate for various surges is to use a tank on top of a tall structure to form a "water tower".
+
+== "Water towers" and tanks
+
+A liquid tank does not hold pressure (think of it as being open to atmosphere on the top). So a pump upstream of a tank will fill it, but once it's full, not pressurize it. This means that a tank's surface sets the pressure downstream of it.
+Pressure upstream of the tank doesn't carry past it.
+
+If you place the tank high relative to the machines requiring the liquid, then you can create a "water tower". Liquid has to be pumped _up_ to the tank, which means the liquid there has a lot of potential head. The tank holds no extra pressure, but the difference in height between the source (the tank) and the sink (the machines that need the liquid) creates the head for the network.
 
 == Manifolds
 
@@ -52,15 +57,15 @@ Keep it short and level, or add a pump.
 *Schematic:* producers feeding one manifold, consumers drawing from it, with the head at each end marked.
 ****
 
-== Returning water to the network
+== Returning liquid to the network
 
 A machine's outlet pushes only 10 m of head, plus its height.
-Where a well, extractors or a water tower hold the network above that, returned water can't get in.
-The machine's output backs up and it stops "full" while the network still wants water.
+Where a well, extractors or a water tower hold the network above that, returned liquid can't get in.
+The machine's output backs up and it stops "full" while the network still wants liquid.
 
 *The layout that works:*
 
-. Merge the machines' water outlets into one return line.
+. Merge the machines' liquid outlets into one return line.
 . Put a pump on the return line, after the merge, so one pump serves them all.
 . Join the return to the supply *just after a valve* on the supply.
 
@@ -75,7 +80,7 @@ A Mk1 lifts at most 32.7 m, less with flow; if the supply holds the join near th
 TIP: A flow limit on the supply valve lowers the pressure at the join.
 But it is a fixed setting, and starves the consumers if it is set below what they need beyond the returns.
 
-And the balance must close, as in vanilla: if the machines return more water than the network uses, the returns back up whatever the layout.
+The balance must still close, as in vanilla: if the machines return more water than the network uses, the returns back up whatever the layout.
 
 .Image to come
 ****
@@ -87,9 +92,3 @@ And the balance must close, as in vanilla: if the machines return more water tha
 Pumps in series add pressure; pumps in parallel add flow.
 Size each pump for the flow through it, not for the lift alone.
 See xref:pumps.adoc#_series_or_parallel[Series or parallel].
-
-== Pumping past a tank
-
-A tank's surface sets the pressure downstream of it.
-Pressure upstream of the tank doesn't carry past it.
-To get fluid past a tank to somewhere higher, put a pump *after* the tank.

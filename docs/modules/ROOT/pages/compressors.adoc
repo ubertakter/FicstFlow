@@ -1,5 +1,5 @@
 = Compressors
-:description: A pipeline pump on a gas line: ratio limits, relief pressure, power, and stages.
+:description: A pipeline pump on a gas line: ratio limits, unloading pressure, power, and stages.
 
 A pipeline pump placed on a gas line works as a compressor.
 The same building, Mk1 or Mk2, is a pump on a liquid line and a compressor on a gas one.
@@ -32,12 +32,15 @@ A Mk2 taking nitrogen at 600 kPa gauge (about 700 kPa absolute) delivers up to a
 TIP: A compressor's displacement is measured at its suction.
 Denser gas at the suction means more gas moved for the same displacement.
 
-== Relief pressure
+== Unloading pressure
 
-Every compressor has a relief valve set at about 82.7 MPa absolute (12,000 psi), above the highest machine inlet.
-Above it, the relief valve returns part of the compressor's output to its suction, and about 10% above it the compressor moves nothing.
+Every compressor unloads above about 82.7 MPa absolute, well above the highest machine inlet.
+Past that point it pumps less, and at about 91 MPa it moves nothing.
+An unloaded compressor still draws its idle power (see <<_power>>).
 
-This is also what stops a gas freight platform or wagon from overfilling.
+This is also what stops a gas freight platform or wagon from overfilling: they fill to about 91 MPa.
+
+NOTE: The compressor panel and the Network Status report still call this "relieving".
 
 == Stages
 
@@ -47,7 +50,10 @@ The plasma chain needs at least two stages; see xref:gas-networks.adoc#_very_hig
 
 == Power
 
-A compressor draws power for the work it does.
+A compressor draws power for the work it does on the gas it delivers, and never less than its idle power while it is switched on: 0.5 MW for a Mk1, 1.0 MW for a Mk2.
+So a running compressor that moves nothing, because it is unloaded, stalled at its ratio limit or starved, still draws its idle power.
+Switched off, it draws none.
+
 Compressing hot gas costs far more: on Dark Matter Residue, about 4 MJ per kilogram at a ratio of 4.3.
 
 == Draining a vessel
@@ -58,4 +64,4 @@ It never quite reaches empty, so to clear a gas platform completely, flush it.
 
 == When the report warns
 
-The xref:report.adoc[Network Status report] warns about a compressor at its ratio limit, a compressor relieving, and a powered compressor moving nothing.
+The xref:report.adoc[Network Status report] warns about a compressor at its ratio limit, a compressor unloading (shown as "relieving"), and a powered compressor moving nothing.
