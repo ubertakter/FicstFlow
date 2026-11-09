@@ -3,8 +3,7 @@
 Bugs are tracked on GitHub.
 You need a free GitHub account to open one.
 
-// TODO: replace OWNER with the GitHub account once the repository exists.
-link:https://github.com/OWNER/FicstFluids-docs/issues/new/choose[Open a bug report^]
+link:https://github.com/ubertakter/FicstFluids/issues/new/choose[Open a bug report^]
 
 Before you report, check the other pages of this manual.
 Much that looks wrong at first is how real fluids behave.
