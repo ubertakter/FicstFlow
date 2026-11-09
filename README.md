@@ -22,3 +22,9 @@ npm run build
 ```
 
 Then open `build/site/index.html`.
+
+## Published preview
+
+Every merge to `main` rebuilds the manual and publishes it to this repository's GitHub Pages
+site (`.github/workflows/pages.yml`). Pull requests get a build check only; any Antora warning,
+such as a broken cross-reference, fails it.
