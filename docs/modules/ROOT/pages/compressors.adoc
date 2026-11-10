@@ -4,8 +4,6 @@
 A pipeline pump placed on a gas line works as a compressor.
 The same building, Mk1 or Mk2, is a pump on a liquid line and a compressor on a gas one.
 
-NOTE: Compressor numbers are still being tuned and may change.
-
 == Ratio, not lift
 
 A compressor multiplies the *absolute* pressure at its suction by up to its *ratio limit*.
