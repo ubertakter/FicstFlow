@@ -5,8 +5,6 @@ WARNING: These commands are for diagnosis and development.
 Several change the game in ways the normal game doesn't, and some can stop every network in the save.
 Save first.
 
-NOTE: The commands still carry the mod's working name, `PipeFlow.`, and will be renamed.
-
 Open the game's console and type the command.
 Many act on what you are *aiming at*: look at the pipe, pump or machine before pressing Enter.
 The console can't be copied from, so commands that report also write their output to the game log:
@@ -15,99 +13,99 @@ The console can't be copied from, so commands that report also write their outpu
 %LOCALAPPDATA%\FactoryGame\Saved\Logs\FactoryGame.log
 ----
 
-Files they write go under `%LOCALAPPDATA%\FactoryGame\Saved\PipeFlow\`.
+Files they write go under `%LOCALAPPDATA%\FactoryGame\Saved\FicstFluids\`.
 
 == Looking at a network
 
-`PipeFlow.Networks [filter]`::
+`FF.Networks [filter]`::
 Every pipe network, largest first, with its id, center, and distance from you.
 The filter narrows it, for example to one fluid.
 
-`PipeFlow.Aim`::
+`FF.Aim`::
 What FicstFluids holds for the aimed thing: a pipe's segments (head at each end, flow, fill), a pump's or valve's branch, or a machine port's head against its needs.
 
-`PipeFlow.Profile`::
+`FF.Profile`::
 Every segment, pump, valve, machine and Fluid Buffer of the networks FicstFluids runs, to `profile\profile<id>.txt` (or `gasprofile<id>.txt`) and the log.
 
-`PipeFlow.Report [liquid|gas]`::
+`FF.Report [liquid|gas]`::
 The Network Status report as text, to the console and the log.
 
-`PipeFlow.Freight [set <kg> | watch]`::
+`FF.Freight [set <kg> | watch]`::
 The aimed freight platform's or wagon's ports, cargo box and capacity.
 `set <kg>` sets an aimed gas platform's contents; `watch` logs the aimed truck station every 0.25 s while a vehicle is docked, for 3 minutes.
 
-`PipeFlow.Pressures`::
+`FF.Pressures`::
 The supply and demand pressures of each machine.
 
-`PipeFlow.Fluids`::
+`FF.Fluids`::
 The fluid table: each fluid's properties as the model uses them.
 
 == Running networks
 
-`PipeFlow.TakeOver [add | add <id> | add all [record]]`::
-Hand a network to FicstFluids: the aimed one, network `<id>` (from `PipeFlow.Networks`), or every liquid network.
+`FF.TakeOver [add | add <id> | add all [record]]`::
+Hand a network to FicstFluids: the aimed one, network `<id>` (from `FF.Networks`), or every liquid network.
 `record` keeps replay records for `add all`.
 
-`PipeFlow.TakeOver remove [id]`::
+`FF.TakeOver remove [id]`::
 Hand the aimed network, or network `id`, back to vanilla.
 
-`PipeFlow.TakeOver off`::
+`FF.TakeOver off`::
 Hand every network back to vanilla.
 
-`PipeFlow.TakeOver status`::
+`FF.TakeOver status`::
 The run: timing, the water ledger, and each network's cost.
 
-`PipeFlow.TakeOver every | coast`::
+`FF.TakeOver every | coast`::
 Solve every network every step, or let settled networks coast (the default).
 
-`PipeFlow.TakeOver flush [buffer | network]`::
+`FF.TakeOver flush [buffer | network]`::
 Flush the aimed pipe's run (as the pipe panel does), or call the game's own flush on the aimed Fluid Buffer or its whole network.
 
 == Freezing and watching
 
-`PipeFlow.Freeze [seconds | hold | off]`::
+`FF.Freeze [seconds | hold | off]`::
 Stops *every* network in the save: fluid-fed generators starve and power trips.
 It thaws itself after 15 s (or the seconds given) unless `hold`; `off` thaws now.
 
-`PipeFlow.Freeze net [seconds | hold]`::
+`FF.Freeze net [seconds | hold]`::
 Freezes only the aimed network; everything else, and the power, keeps running.
 
-`PipeFlow.Watch`::
+`FF.Watch`::
 The aimed network's whole inventory, raw from the game.
 Run it twice to see what moved.
 
-`PipeFlow.InputLog [on | off | reset | focus [off]]`::
+`FF.InputLog [on | off | reset | focus [off]]`::
 Logs every change to a solver input across all networks; with no argument, the summary so far.
 `focus` follows the aimed machine in detail.
 
 == Performance
 
-`PipeFlow.TickStats`, `PipeFlow.TickStatsReset`::
+`FF.TickStats`, `FF.TickStatsReset`::
 How often the fluid simulation runs and what it costs, against vanilla's.
 
-`PipeFlow.FrameLog start [frames] | stop`::
+`FF.FrameLog start [frames] | stop`::
 A split of each frame's time, including FicstFluids' and vanilla's pipe time, to `frames\`: a row per second, or per frame with `frames`.
 
 == Development
 
 These are for building and checking the mod itself.
 
-`PipeFlow.Dump`, `PipeFlow.Model`::
+`FF.Dump`, `FF.Model`::
 The aimed network as the game holds it, and as the model reads it.
 
-`PipeFlow.ExportJulia`::
+`FF.ExportJulia`::
 The aimed network, written as a model file for the PipeFlowSim solver.
 
-`PipeFlow.Solve <seconds> [dt] [empty|full]`::
+`FF.Solve <seconds> [dt] [empty|full]`::
 Runs the solver on a *copy* of the aimed network and writes the trace to `port-check\`.
 Changes nothing in the game.
 
-`PipeFlow.LeafCheck [path]`, `PipeFlow.EigenCheck [aim]`::
+`FF.LeafCheck [path]`, `FF.EigenCheck [aim]`::
 Checks the solver's building blocks against PipeFlowSim's tables, and times them.
 
-`PipeFlow.Port [box|inv <port> <m3>]`::
+`FF.Port [box|inv <port> <m3>]`::
 Lists the aimed machine's pipe ports and buffers, or adds to (negative: takes from) one.
 Changes the game.
 
-`PipeFlow.Widgets [filter]`, `PipeFlow.Markers`::
+`FF.Widgets [filter]`, `FF.Markers`::
 The live widget tree of open panels, and every map marker with its icon id; for building the user interface.
