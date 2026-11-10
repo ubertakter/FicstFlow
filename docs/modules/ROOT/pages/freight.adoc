@@ -19,6 +19,21 @@ An unloading station's 10 m may not fill a Fluid Buffer.
 The buffer stops at the level that balances it, and the station keeps the rest; one level with the station's ports stopped at about 81%.
 To fill it, add a pump or lower the buffer.
 
+== Running machines from an unloading station
+
+An unloading station keeps supplying its line while a truck docks.
+The delivery lands without interrupting the flow.
+
+When the station runs empty, its outlets stop and the line stops flowing.
+Each machine runs on its own internal buffer until that is used up, and then stops.
+On a level pipe, the pipe still reads 100% full: the liquid stands in it, but nothing is pushing it.
+A full pipe isn't a supply.
+If the pipe drops toward the machine, the liquid in it keeps the machine going a little longer, until what is left no longer gives the machine its minimum inlet head (4 m, see xref:machines.adoc[]).
+
+When the next truck delivers, the station supplies again, and the line and its machines restart by themselves.
+
+To keep machines running between trucks, deliver more often, or put a Fluid Buffer between the station and the machines, low enough for the station's 10 m to fill it.
+
 == Only one side works at a time
 
 In load mode a platform takes from its inlets and its outlets are shut; in unload mode, the reverse.

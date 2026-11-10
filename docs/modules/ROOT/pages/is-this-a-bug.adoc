@@ -59,6 +59,9 @@ If what you see isn't here, or doesn't match the explanation, see xref:reporting
 | An unloading station won't fill a Fluid Buffer.
 | Its 10 m balances the buffer's level. Add a pump or lower the buffer. xref:freight.adoc#_it_empties_like_an_extractor[Freight]
 
+| A pipe reads full, but the machine at its end has run out.
+| Nothing is pushing the liquid: its supply has stopped, for example an unloading station that has run empty. A full pipe isn't a supply. xref:freight.adoc#_running_machines_from_an_unloading_station[Freight]
+
 | The report warns about pumps on a line whose machines are on standby.
 | They use power and move nothing. xref:report.adoc#_machines_on_standby_warn_about_their_pumps[Report]
 
