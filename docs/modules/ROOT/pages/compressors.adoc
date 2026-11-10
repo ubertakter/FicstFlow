@@ -40,7 +40,7 @@ An unloaded compressor still draws its idle power (see <<_power>>).
 
 This is also what stops a gas freight platform or wagon from overfilling: they fill to about 91 MPa.
 
-NOTE: The compressor panel and the Network Status report still call this "relieving".
+NOTE: The compressor panel and the Network Status report call this "relieving".
 
 == Stages
 
