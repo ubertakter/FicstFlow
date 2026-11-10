@@ -91,8 +91,6 @@ That takes *at least two stages* of compression: from a Converter's 2.8 MPa, one
 Compressing these hot plasmas costs far more power than nitrogen.
 The two Mk2 stages an Accelerator needs draw about 12.7 MW together.
 
-NOTE: The plasma chain's pressures are under review and may change.
-
 == Gas in an existing save
 
 Vanilla gas lines stop when FicstFluids is installed.
